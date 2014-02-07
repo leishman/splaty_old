@@ -1,0 +1,11 @@
+<div id="user_data" data-username='<%= @user.username %>' style="display:none"></div>
+<div class="container">
+  <label>Your Splaty!</label>
+  <textarea id="notes_field" class="form-control" rows="6" cols="80" name="user[notes]" placeholder="Enter your notes here!">
+    <% if !@user.notes.nil? %>
+      <%= @user.notes %>
+    <% end %>
+  </textarea>
+  <br>
+  <button id="notes_button" type="button" data-loading-text="Saving..." class="btn btn-primary" >Save</button>
+</div>

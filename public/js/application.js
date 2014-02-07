@@ -1,7 +1,47 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  var username = $('#user_data').data('username');
+
+  $('#notes_button').click(function(){
+
+    var $btn = $(this);
+    $btn.button('loading');
+
+    var resetButton = function(){$btn.button('reset')}
+
+    $dataField = $('#notes_field');
+
+    var postObject = getPostObject($dataField, 'notes');
+
+    sendPostRequest(postObject, function(){
+      window.setTimeout(resetButton, 1000) // Add pause for effect
+    });
+
+  });
+
+  // Returns a block of information to pass to sendPostRequest().
+  // Pass in the information field jQuery object and name of the field
+  function getPostObject($fieldObject, name){
+
+    var data = {};
+    data[name] = $fieldObject.val()
+
+    // url for post request
+    var url = '/' + username;
+
+    // Data to send to server
+    var dataPost = {
+        username: username,
+        data: data
+    };
+
+    return {url: url, dataPost: dataPost};
+  }
+
+  // Send post request
+  function sendPostRequest(args, callback){
+    $.post(args.url, args.dataPost, function(response){
+    }).done(callback());
+  }
+
 });

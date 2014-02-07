@@ -17,14 +17,15 @@ gem 'activerecord'
 gem 'rake'
 
 gem 'shotgun'
-
-group :test do
-  gem 'shoulda-matchers'
-  gem 'rack-test'
-end
+gem 'rack-flash3'
 
 group :test, :development do
   gem 'rspec'
   gem 'factory_girl'
   gem 'faker'
+end
+
+group :test do
+  gem 'rack-test'
+  gem 'shoulda-matchers'
 end

@@ -1,3 +1,22 @@
-<div class="container">
-  <textarea width="300px" height="200px"></textarea>
-</div>
+  <div class="container" id="form-container">
+    <h1>Sign Up</h1>
+    <%= erb :errors %>
+    <form method="post" action="/users" id="sign-up" role="form" class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label required">Username</label>
+        <div class="controls">
+         <input type="text" name="user[username]" placeholder="e.g., BillyJean17" class="form-control">
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Email</label>
+        <div class="controls">
+          <input type="email" name="user[email]" placeholder="e.g., me@example.com" class="form-control">
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-default">Sign Up</button>
+    </form>
+
+  </div>
