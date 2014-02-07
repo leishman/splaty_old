@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, message: "Email is invalid"
 
   def notes
-    self.collection.notes
+    if !self.collection.nil? # Need to refactor
+      self.collection.notes
+    end
   end
 end

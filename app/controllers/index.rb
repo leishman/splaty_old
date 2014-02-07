@@ -20,12 +20,20 @@ end
 #----User pages---
 
 get '/:username' do
-  @user = User.find_by_username(params[:username])
-  erb :user_page
+  begin
+    @user = User.find_by_username(params[:username])
+    erb :user_page
+  rescue
+    redirect '/'
+  end
 end
 
 post '/:username' do
-  @collection = User.find_by_username(params[:username]).collection
-  @collection.update_attributes(params[:data])
-  return
+  user = User.find_by_username(params[:username])
+  begin
+    user.collection.update_attributes(params[:data])
+  rescue
+    collection = Collection.create(params[:data])
+    user.collection = collection
+  end
 end
