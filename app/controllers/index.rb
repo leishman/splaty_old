@@ -24,8 +24,8 @@ get '/:username' do
   erb :user_page
 end
 
-# post '/:username' do
-
-# end
-
-
+post '/:username' do
+  @collection = User.find_by_username(params[:username]).collection
+  @collection.update_attributes(params[:data])
+  return
+end

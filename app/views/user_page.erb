@@ -1,5 +1,7 @@
+<div id="user_data" data-username='<%= @user.username %>' style="display:none"></div>
 <div class="container">
-  <textarea rows="4" cols="50" name="user[notes]" id="notes"><%= @user.notes %></textarea>
+  <label>Your Splaty!</label>
+  <textarea id="notes_field" class="form-control" rows="6" cols="80" name="user[notes]"><%= @user.notes %></textarea>
   <br>
-  <button id="#notes_button">Save</button>
+  <button id="notes_button" type="button" data-loading-text="Saving..." class="btn btn-primary" >Save</button>
 </div>
