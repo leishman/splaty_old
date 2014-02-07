@@ -21,7 +21,7 @@ end
 
 get '/:username' do
   @user = User.find_by_username(params[:username])
-  # render page with proper data
+  erb :user_page
 end
 
 # post '/:username' do
