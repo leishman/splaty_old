@@ -45,7 +45,6 @@ post '/:username/notes' do
 end
 
 post '/:username/photos' do
-  p params
   user = User.find_by_username(params[:username])
   p = Photo.new
   p.image = params[:image]
@@ -53,5 +52,9 @@ post '/:username/photos' do
   user.photos << p
 
   # p.description = params[:description]
-  redirect "/params[:username]"
+  redirect "/#{params[:username]}"
+end
+
+delete '/photos/:id' do
+  Photo.find(params[:id]).destroy
 end

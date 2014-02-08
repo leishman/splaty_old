@@ -1,5 +1,28 @@
 $(document).ready(function() {
 
+
+
+  $('.image-container').mouseenter(function(e){
+    $(e.currentTarget.children[1]).show();
+  })
+
+  $('.image-container').mouseleave(function(e){
+    $(e.currentTarget.children[1]).hide();
+  })
+
+  $('.image-delete').click(function(e){
+    console.log($(e.currentTarget).parent());
+    $photoContainer = $(e.currentTarget).parent();
+    $photoContainer.remove();
+    photoId = $photoContainer.data("photo-id");
+    $.ajax({
+      url: '/photos/' + photoId,
+      type: "DELETE"
+    })
+  })
+
+
+
   var username = $('#user_data').data('username');
 
   $('#notes_button').click(function(){
@@ -16,8 +39,6 @@ $(document).ready(function() {
     sendPostRequest(postObject, function(){
       window.setTimeout(resetButton, 1000) // Add pause for effect
     });
-
-
 
   });
 
