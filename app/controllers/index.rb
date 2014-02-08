@@ -1,5 +1,11 @@
 use Rack::Flash
 
+# before do
+#   if request.request_method == "POST"
+#     user = User.find_by_username(params[:username])
+#   end
+# end
+
 get '/' do
   erb :index
 end
@@ -28,12 +34,24 @@ get '/:username' do
   end
 end
 
-post '/:username' do
+post '/:username/notes' do
   user = User.find_by_username(params[:username])
   begin
-    user.collection.update_attributes(params[:data])
+    user.notes.first.update_attributes(params[:data])
   rescue
-    collection = Collection.create(params[:data])
-    user.collection = collection
+    note = Note.create(params[:data])
+    user.notes << note
   end
+end
+
+post '/:username/photos' do
+  p params
+  user = User.find_by_username(params[:username])
+  p = Photo.new
+  p.image = params[:image]
+  p.save
+  user.photos << p
+
+  # p.description = params[:description]
+  redirect "/params[:username]"
 end

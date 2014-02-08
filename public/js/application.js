@@ -3,7 +3,7 @@ $(document).ready(function() {
   var username = $('#user_data').data('username');
 
   $('#notes_button').click(function(){
-
+    // set notes button jQuery object
     var $btn = $(this);
     $btn.button('loading');
 
@@ -11,23 +11,25 @@ $(document).ready(function() {
 
     $dataField = $('#notes_field');
 
-    var postObject = getPostObject($dataField, 'notes');
+    var postObject = getPostObject($dataField, 'text', 'notes');
 
     sendPostRequest(postObject, function(){
       window.setTimeout(resetButton, 1000) // Add pause for effect
     });
 
+
+
   });
 
   // Returns a block of information to pass to sendPostRequest().
   // Pass in the information field jQuery object and name of the field
-  function getPostObject($fieldObject, name){
+  function getPostObject($fieldObject, colName, routeName){
 
     var data = {};
-    data[name] = $fieldObject.val()
+    data[colName] = $fieldObject.val()
 
     // url for post request
-    var url = '/' + username;
+    var url = '/' + username + '/' + routeName;
 
     // Data to send to server
     var dataPost = {
