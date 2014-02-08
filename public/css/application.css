@@ -26,3 +26,32 @@
   cursor: pointer;
 }
 
+#page
+{
+    position: relative;
+    width: 940px;
+    height: 470px;
+    margin: 0 auto;
+}
+#drop-backdrop, #drop-target
+{
+    position: absolute;
+    width: 100%;
+    height: 100px;
+}
+#drop-target
+{
+    border: 1px dashed #aaa;
+}
+
+#drop-backdrop
+{
+    color: #bbb;
+    font-size: 20px;
+}
+#drop-backdrop .text
+{
+    width: 220px;
+    margin: 40px auto 0 auto;
+    position: relative;
+}

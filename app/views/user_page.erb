@@ -18,11 +18,21 @@
     </div>
   <% end %>
 </div>
+
 <div class="container">
 <section id="add">
   <form action="/<%= @user.username %>/photos" method="post" enctype="multipart/form-data">
       <p><input type="file" name="image" /></p>
-      <button type="submit" value="Upload Image">Save Photo</button>
+      <button type="submit">Save Photo</button>
   </form>
   </section>
-</div>
+  <br>
+
+  <div id="page">
+    <div class="html5upload" id="html5upload">
+      <div id="drop-backdrop">
+        <div class="text">Drag files here to upload</div>
+        </div>
+      <canvas id="drop-target"></canvas>
+    </div>
+  </div>
