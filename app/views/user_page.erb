@@ -3,36 +3,11 @@
   <label>Your Splaty!</label>
   <textarea id="notes_field" class="form-control" rows="6" cols="80" name="user[notes]" placeholder="Enter your notes here!">
     <% if !@user.notes.nil? %>
-      <%= @user.notes.first.text.strip %>
+      <%= @note %>
     <% end %>
   </textarea>
   <br>
   <button id="notes_button" type="button" data-loading-text="Saving..." class="btn btn-primary" >Save</button>
 </div>
 
-<div class="container" id="images-container">
-  <% @user.photos.each do |photo| %>
-    <div class="image-container" data-photo-id='<%= photo.id %>'>
-      <img src="<%= photo.image.url %>" class="image-thumbnail">
-      <span class="glyphicon glyphicon-remove image-delete"> </span>
-    </div>
-  <% end %>
-</div>
-
-<div class="container">
-<section id="add">
-  <form action="/<%= @user.username %>/photos" method="post" enctype="multipart/form-data">
-      <p><input type="file" name="image" /></p>
-      <button type="submit">Save Photo</button>
-  </form>
-  </section>
-  <br>
-
-  <div id="page">
-    <div class="html5upload" id="html5upload">
-      <div id="drop-backdrop">
-        <div class="text">Drag files here to upload</div>
-        </div>
-      <canvas id="drop-target"></canvas>
-    </div>
-  </div>
+<%= erb :image_upload_partial, :layout => false %>

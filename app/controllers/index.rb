@@ -5,6 +5,7 @@ use Rack::Flash
 #     user = User.find_by_username(params[:username])
 #   end
 # end
+require 'debugger'
 
 get '/' do
   erb :index
@@ -26,12 +27,9 @@ end
 #----User pages---
 
 get '/:username' do
-  begin
-    @user = User.find_by_username(params[:username])
-    erb :user_page
-  rescue
-    redirect '/'
-  end
+  redirect '/' if !user_exists?
+  get_user_content
+  erb :user_page
 end
 
 post '/:username/notes' do

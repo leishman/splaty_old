@@ -19,7 +19,14 @@ GEM
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
       json (>= 1.7)
+    columnize (0.3.6)
     daemons (1.1.9)
+    debugger (1.6.5)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.3.1)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.3.1)
     diff-lcs (1.2.4)
     eventmachine (1.0.3)
     factory_girl (4.2.0)
@@ -75,6 +82,7 @@ DEPENDENCIES
   activerecord
   activesupport
   carrierwave
+  debugger
   factory_girl
   faker
   pg

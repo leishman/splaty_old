@@ -21,6 +21,7 @@ gem 'rack-flash3'
 gem 'carrierwave'
 
 group :test, :development do
+  gem 'debugger'
   gem 'rspec'
   gem 'factory_girl'
   gem 'faker'

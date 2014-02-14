@@ -24,10 +24,6 @@ $(document).ready(function() {
 
   },true);
 
-  dropzone.addEventListener('dragover', function(event) {
-      event.preventDefault();
-  }, true);
-
 
 
 

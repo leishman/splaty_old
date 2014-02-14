@@ -1,0 +1,17 @@
+<div class="container" id="images-container">
+  <% @user.photos.each do |photo| %>
+    <div class="image-container" data-photo-id='<%= photo.id %>'>
+      <img src="<%= photo.image.url %>" class="image-thumbnail">
+      <span class="glyphicon glyphicon-remove image-delete"> </span>
+    </div>
+  <% end %>
+</div>
+
+<div class="container">
+<section id="add">
+  <form action="/<%= @user.username %>/photos" method="post" enctype="multipart/form-data">
+      <p><input type="file" name="image" /></p>
+      <button type="submit">Save Photo</button>
+  </form>
+  </section>
+  <br>
