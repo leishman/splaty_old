@@ -1,5 +1,32 @@
+.dashboard {
+  margin: 50px auto 0 auto;
+}
+
+#notes-container {
+  width: 700px;
+}
+
+#images-container {
+  margin-top: 40px;
+  width: 700px;
+}
+
+#notes_button {
+  margin-top: 10px;
+  width: 120px;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+/*Image Formatting*/
+
 .image-container {
-  /*float: left;*/
   width: 200px;
   height: 200px;
   display: inline-block;

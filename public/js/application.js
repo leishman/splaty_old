@@ -1,32 +1,5 @@
 $(document).ready(function() {
 
-  var dropzone = document.getElementById('drop-target');
-  dropzone.addEventListener('drop', function(event) {
-    event.preventDefault();
-    console.log(event.dataTransfer.files);
-
-    var processFiles = function (files) {
-      for (var i = 0; i < files.length; i++) {
-        var file = files[i];
-        upload(file);
-      };
-    }
-
-    var upload = function (file) {
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'leishman/photos', true);
-      xhr.setRequestHeader('X-Filename', file.fileName);
-      xhr.send(file);
-    }
-
-    processFiles(event.dataTransfer.files);
-
-
-  },true);
-
-
-
-
   $('.image-container').mouseenter(function(e){
     $(e.currentTarget.children[1]).show();
   })

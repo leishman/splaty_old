@@ -48,8 +48,6 @@ post '/:username/photos' do
   p.image = params[:image]
   p.save
   user.photos << p
-
-  # p.description = params[:description]
   redirect "/#{params[:username]}"
 end
 
