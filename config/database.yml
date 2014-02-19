@@ -10,6 +10,4 @@ test:
   encoding: unicode
   database: splaty_test
   pool: 5
-  username: splaty
-  password:
 
