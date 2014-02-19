@@ -1,4 +1,6 @@
 Splaty::Application.routes.draw do
+  root to: 'users#new'
+  resources :users, only: [:create, :show]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
