@@ -1,8 +1,0 @@
-<div class="container dashboard">
-  <h1>Splaty!</h1>
-  <h2><small id="username"><%= @user.username %></small></h2>
-  <%= erb :notes_partial, :layout => false %>
-  <%= erb :image_upload_partial, :layout => false %>
-
-  <div id="user_data" data-username='<%= @user.username %>' style="display:none"></div>
-</div>

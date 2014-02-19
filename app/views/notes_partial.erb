@@ -1,9 +1,0 @@
-<div class="container" id="notes-container">
-  <label>Notes:</label>
-  <textarea id="notes_field" class="form-control" rows="6" cols="80" name="user[notes]" placeholder="Enter your notes here!">
-    <% if !@user.notes.nil? %>
-      <%= @note %>
-    <% end %>
-  </textarea>
-  <button id="notes_button" type="button" data-loading-text="Saving..." class="btn btn-primary" >Update Note</button>
-</div>

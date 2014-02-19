@@ -1,33 +1,31 @@
 source 'https://rubygems.org'
 ruby '1.9.3'
 
-# PostgreSQL driver
+gem 'rails', '3.2.13'
 gem 'pg'
 
-# Sinatra driver
-gem 'sinatra'
-gem 'sinatra-contrib'
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'uglifier', '>= 1.0.3'
+end
 
-# Use Thin for our web server
-gem 'thin'
+group :development, :test do
+  gem 'rspec-rails'
+end
 
-gem 'activesupport'
-gem 'activerecord'
-
-gem 'rake'
-
-gem 'shotgun'
-gem 'rack-flash3'
-gem 'carrierwave'
-
-group :test, :development do
-  gem 'debugger'
-  gem 'rspec'
-  gem 'factory_girl'
-  gem 'faker'
+group :development do
+  gem 'better_errors'
 end
 
 group :test do
-  gem 'rack-test'
   gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'capybara'
+  gem 'rack-test'
+  gem 'selenium-webdriver'
+  gem 'database-cleaner'
 end
+
+gem 'jquery-rails'
