@@ -25,7 +25,7 @@ group :test do
   gem 'capybara'
   gem 'rack-test'
   gem 'selenium-webdriver'
-  gem 'database-cleaner'
+  gem 'database_cleaner'
 end
 
 gem 'jquery-rails'
